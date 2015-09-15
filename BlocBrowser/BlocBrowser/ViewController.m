@@ -40,7 +40,7 @@
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.textField.placeholder = NSLocalizedString(@"Website URL", @"Placeholder text for web browser URL field");
+    self.textField.placeholder = NSLocalizedString(@"Website URL or Search via Google", @"Placeholder text for web browser URL field");
     self.textField.backgroundColor = [UIColor colorWithWhite:220/255.0f alpha:1];
     self.textField.delegate = self;
     
@@ -67,11 +67,6 @@
     
     [self.reloadButton setTitle:NSLocalizedString(@"Refresh", @"Reload command") forState:UIControlStateNormal];
     [self.reloadButton addTarget:self.webView action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
-    
-    /*NSString *urlString = @"http://wikipedia.org";
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];*/
     
     
     for (UIView *viewToAdd in @[self.webView, self.textField, self.backButton, self.forwardButton, self.stopButton, self.reloadButton]) {
@@ -116,6 +111,18 @@
     NSString *URLString = textField.text;
     
     NSURL *URL = [NSURL URLWithString:URLString];
+    
+    //##### add built in google search
+    NSString *trimmedString = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSRange whitespaceRange = [trimmedString rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (whitespaceRange.location != NSNotFound) {
+        // if there's whitespace its a search term.. make the appropriate url
+        NSString *searchQuery = [trimmedString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        URLString = [NSString stringWithFormat:@"google.com/search?q=%@", searchQuery];
+    } else {
+        URLString = trimmedString;
+    }
+    //
     
     if (!URL.scheme) {
         // The user didn't type http: or https:
