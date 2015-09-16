@@ -23,6 +23,14 @@
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     
     [self.window makeKeyAndVisible];
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome!", @"Welcome")
+                                                     message:@"Enjoy Using Bloc Browser"
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
+    
     return YES;
 }
 
@@ -46,6 +54,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

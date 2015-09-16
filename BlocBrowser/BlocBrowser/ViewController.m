@@ -30,6 +30,7 @@
 //####################### Creating the main view
 
 - (void)loadView {
+    
     UIView *mainView = [UIView new];
     
     self.webView = [[WKWebView alloc] init];
@@ -72,6 +73,9 @@
     }
     
     self.view = mainView;
+    
+    
+    
 }
 
 
@@ -216,7 +220,8 @@
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 
-
+    
+    
 }
 
 
