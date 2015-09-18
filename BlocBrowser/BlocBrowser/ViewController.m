@@ -99,7 +99,8 @@
 
     
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
 #pragma mark - AwesomeFloatingToolbarDelegate
 
 - (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didSelectButtonWithTitle:(NSString *)title {
@@ -112,7 +113,36 @@
     } else if ([title isEqual:NSLocalizedString(@"Refresh", @"Reload command")]) {
         [self.webView reload];
     }
+} */
+
+#pragma mark - AwesomeFloatingToolbarDelegate
+
+- (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didSelectButtonWithTitle:(NSString *)title {
+    if ([title isEqual:@"Back"]) {
+        [self.webView goBack];
+    } else if ([title isEqual:@"Forawrd"]) {
+        [self.webView goForward];
+    } else if ([title isEqual:@"stop"]) {
+        [self.webView stopLoading];
+    } else if ([title isEqual:@"Refresh"]) {
+        [self.webView reload];
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma mark - UITextFieldDelegate
 
