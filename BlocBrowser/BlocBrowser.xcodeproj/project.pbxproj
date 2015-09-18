@@ -13,6 +13,7 @@
 		511DA95D1BA7DE5E00C26239 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511DA95C1BA7DE5E00C26239 /* Images.xcassets */; };
 		511DA9601BA7DE5E00C26239 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511DA95E1BA7DE5E00C26239 /* LaunchScreen.xib */; };
 		511DA96C1BA7DE5E00C26239 /* BlocBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DA96B1BA7DE5E00C26239 /* BlocBrowserTests.m */; };
+		511DA97E1BA9468500C26239 /* AwesomeFloatingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DA97D1BA9468500C26239 /* AwesomeFloatingToolbar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		511DA9651BA7DE5E00C26239 /* BlocBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		511DA96A1BA7DE5E00C26239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		511DA96B1BA7DE5E00C26239 /* BlocBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocBrowserTests.m; sourceTree = "<group>"; };
+		511DA97C1BA9468500C26239 /* AwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeFloatingToolbar.h; sourceTree = "<group>"; };
+		511DA97D1BA9468500C26239 /* AwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeFloatingToolbar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +82,9 @@
 		511DA94E1BA7DE5E00C26239 /* BlocBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				511DA9531BA7DE5E00C26239 /* AppDelegate.h */,
-				511DA9541BA7DE5E00C26239 /* AppDelegate.m */,
-				511DA9561BA7DE5E00C26239 /* ViewController.h */,
-				511DA9571BA7DE5E00C26239 /* ViewController.m */,
+				511DA97B1BA92AD400C26239 /* AppDelegate */,
+				511DA97A1BA92ABE00C26239 /* ViewController */,
+				511DA97F1BA9468C00C26239 /* AwesomeToolbar */,
 				511DA95C1BA7DE5E00C26239 /* Images.xcassets */,
 				511DA95E1BA7DE5E00C26239 /* LaunchScreen.xib */,
 				511DA94F1BA7DE5E00C26239 /* Supporting Files */,
@@ -114,6 +116,33 @@
 				511DA96A1BA7DE5E00C26239 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		511DA97A1BA92ABE00C26239 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				511DA9561BA7DE5E00C26239 /* ViewController.h */,
+				511DA9571BA7DE5E00C26239 /* ViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		511DA97B1BA92AD400C26239 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				511DA9531BA7DE5E00C26239 /* AppDelegate.h */,
+				511DA9541BA7DE5E00C26239 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		511DA97F1BA9468C00C26239 /* AwesomeToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				511DA97C1BA9468500C26239 /* AwesomeFloatingToolbar.h */,
+				511DA97D1BA9468500C26239 /* AwesomeFloatingToolbar.m */,
+			);
+			name = AwesomeToolbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +247,7 @@
 				511DA9581BA7DE5E00C26239 /* ViewController.m in Sources */,
 				511DA9551BA7DE5E00C26239 /* AppDelegate.m in Sources */,
 				511DA9521BA7DE5E00C26239 /* main.m in Sources */,
+				511DA97E1BA9468500C26239 /* AwesomeFloatingToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +436,7 @@
 				511DA9711BA7DE5E00C26239 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		511DA9721BA7DE5E00C26239 /* Build configuration list for PBXNativeTarget "BlocBrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +445,7 @@
 				511DA9741BA7DE5E00C26239 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
