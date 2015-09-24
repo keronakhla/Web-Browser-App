@@ -16,7 +16,9 @@
 @property (nonatomic, weak) UILabel *currentLabel;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
-
+/*****************************/
+@property (nonatomic, strong) UIPinchGestureRecognizer *pinchGesture;
+/*****************************/
 @end
 
 @implementation AwesomeFloatingToolbar
@@ -62,14 +64,14 @@
         }
         // #1
         self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
-        
-        // #2
         [self addGestureRecognizer:self.tapGesture];
         
         self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panFired:)];
         [self addGestureRecognizer:self.panGesture];
-
-        
+        /*****************************/
+        self.pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchFired:)];
+        [self addGestureRecognizer:self.pinchGesture];
+        /*****************************/
     }
     
     return self;
@@ -101,6 +103,19 @@
         [recognizer setTranslation:CGPointZero inView:self];
     }
 }
+
+/*****************************************/
+- (void) pinchFired:(UIPinchGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateChanged) {
+        
+        
+        if ([self.delegate respondsToSelector:@selector(floatingToolbar:didTryToPinchWithScale:)]) {
+            [self.delegate floatingToolbar:self didTryToPinchWithScale:recognizer.scale];
+        }
+    }
+}
+/*****************************************/
+
 
 - (void) layoutSubviews {
     // set the frames for the 4 labels
@@ -147,8 +162,6 @@
         return nil;
     }
 }
-
-
 
 
 #pragma mark - Button Enabling

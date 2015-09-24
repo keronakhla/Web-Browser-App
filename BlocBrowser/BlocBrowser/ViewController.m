@@ -81,7 +81,6 @@
 
 
 //###################### Resizing the Web View
-
 -(void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
@@ -94,10 +93,6 @@
     // Now, assign the frames
     self.textField.frame = CGRectMake(0, 0, width, itemHeight);
     self.webView.frame = CGRectMake(0, CGRectGetMaxY(self.textField.frame), width, browserHeight);
-    
-    self.awesomeToolbar.frame = CGRectMake(20, 100, 280, 60);
-
-    
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
@@ -128,18 +123,6 @@
         [self.webView reload];
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -232,6 +215,7 @@
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 
+    self.awesomeToolbar.frame = CGRectMake(20, 100, 280, 60);
 
 }
 
@@ -245,6 +229,17 @@
         toolbar.frame = potentialNewFrame;
     }
 }
+
+/*****************************/
+- (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didTryToPinchWithScale:(CGFloat)scale {
+    
+    CGRect potentialNewFrame = CGRectMake(toolbar.frame.origin.x, toolbar.frame.origin.y, CGRectGetWidth(toolbar.frame) * scale, CGRectGetHeight(toolbar.frame) * scale);
+    
+    if (CGRectContainsRect(self.view.bounds, potentialNewFrame)) {
+        toolbar.frame = potentialNewFrame;
+    }
+}
+/*****************************/
 
 
 @end
