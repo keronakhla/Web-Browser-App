@@ -76,6 +76,9 @@
     
     self.textField.text = nil;
     [self updateButtonsAndTitle];
+    /*****************************/
+    [self.view bringSubviewToFront:self.awesomeToolbar];
+    
 }
 
 
@@ -93,6 +96,13 @@
     // Now, assign the frames
     self.textField.frame = CGRectMake(0, 0, width, itemHeight);
     self.webView.frame = CGRectMake(0, CGRectGetMaxY(self.textField.frame), width, browserHeight);
+    
+    /*****************************/
+    if (self.awesomeToolbar.frame.size.width == 0){
+        self.awesomeToolbar.frame = CGRectMake (20, 100, 280, 60);
+    }
+    /*****************************/
+
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
